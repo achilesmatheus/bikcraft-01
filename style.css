@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  grid-column: 1/-1;
+}
+
+header h1 {
+  text-align: center;
+  margin: 0;
+  padding: 3rem 0;
+  font-size: 3rem;
+}
+
+main {
+  margin: 3rem 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 20px 40px;
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  border: 2px solid #fff;
+  min-width: 180px;
+  text-align: center;
+}
+
+nav ul li a:hover {
+  border-color: #ec1f11;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+section.presentation {
+  position: relative;
+}
+
+section.presentation::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #ec1f11;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 30px;
+}
+
+section.presentation .content {
+  background-color: #fff;
+  padding: 3rem;
+  text-align: right;
+}
+
+section.presentation .content a {
+  text-decoration: none;
+  background-color: #ec1f11;
+  color: #fff;
+  padding: 20px 40px;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+
+section.presentation .content a:hover {
+  background-color: #c40900;
+}
+
+section.presentation .content_img img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right;
+}
+
+section.advantages h1 {
+  font-size: 4rem;
+  color: #c9c9c9;
+  text-align: right;
+  place-self: center;
+  padding: 2rem;
+}
+
+section.advantages ul {
+  background-color: #fff;
+  margin: 0;
+  padding: 3rem;
+  list-style: none;
+}
+
+section.advantages ul li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  padding: 1.5rem;
+  border-left: 3px solid transparent;
+}
+
+section.advantages ul li:hover {
+  border-color: #ec1f11;
+}
+
+section.advantages ul li:nth-child(odd) {
+  background-color: #eee;
+}
+
+section.advantages ul li h3 {
+  padding: 0;
+  margin: 0;
+}
+
+section.advantages ul li p {
+  grid-column: 2;
+  margin: 0;
+}
+
+@media (max-width: 950px) {
+  section.advantages h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 760px) {
+  section.advantages {
+    grid-template-columns: 1fr;
+  }
+  section.advantages h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  section.advantages ul {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    grid-template-columns: 1fr;
+  }
+  header h1 {
+    padding: 2rem 0;
+  }
+  main {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 385px) {
+  section.advantages h1 {
+    font-size: 2rem;
+  }
+}
