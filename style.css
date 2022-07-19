@@ -1,10 +1,28 @@
+:root {
+  --primary-button-bg: #ec1f11;
+  --primary-button-bg_hover: #c40900;
+  --primary-bg: #f6f6f6;
+  --secondary-bg: #fff;
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --light-title: rgba(0, 0, 0, 0.2);
+}
+
+:root.dark {
+  --primary-bg: #1d1d1d;
+  --secondary-bg: #000;
+  --primary-color: #fff;
+  --secondary-color: #000;
+  --light-title: rgb(255, 255, 255, 0.2);
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
 body {
-  background-color: #f6f6f6;
+  background-color: var(--primary-bg);
 }
 
 h1 {
@@ -20,11 +38,53 @@ header {
   grid-column: 1/-1;
 }
 
+header div {
+  display: flex;
+  align-items: center;
+}
+
 header h1 {
+  flex: 1;
   text-align: center;
   margin: 0;
   padding: 3rem 0;
   font-size: 3rem;
+  color: var(--primary-color);
+}
+
+header div .btn-dark-light {
+  position: relative;
+  width: 54px;
+  height: 28px;
+  background-color: var(--primary-color);
+  border-radius: 28px;
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+header div .btn-dark-light::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-bg);
+  border-radius: 28px;
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  left: 4px;
+}
+
+header div .btn-dark-light.dark::before {
+  transform: translateX(26px);
+}
+
+header div .btn-dark-light::after {
+  content: attr(data-theme);
+  color: var(--primary-color);
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
 }
 
 main {
@@ -45,17 +105,17 @@ nav ul li a {
   text-decoration: none;
   padding: 20px 40px;
   display: inline-block;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
   text-transform: uppercase;
   border-radius: 0.25rem;
-  border: 2px solid #fff;
+  border: 2px solid var(--secondary-color);
   min-width: 180px;
   text-align: center;
 }
 
 nav ul li a:hover {
-  border-color: #ec1f11;
+  border-color: var(--primary-button-bg);
 }
 
 section {
@@ -73,21 +133,29 @@ section.presentation::after {
   position: absolute;
   width: 60px;
   height: 4px;
-  background-color: #ec1f11;
+  background-color: var(--primary-button-bg);
   transform: translateX(-50%);
   left: 50%;
   top: 30px;
 }
 
 section.presentation .content {
-  background-color: #fff;
+  background-color: var(--secondary-color);
   padding: 3rem;
   text-align: right;
 }
 
+section.presentation h1 {
+  color: var(--primary-color);
+}
+
+section.presentation p {
+  color: var(--primary-color);
+}
+
 section.presentation .content a {
   text-decoration: none;
-  background-color: #ec1f11;
+  background-color: var(--primary-button-bg);
   color: #fff;
   padding: 20px 40px;
   display: inline-block;
@@ -96,7 +164,7 @@ section.presentation .content a {
 }
 
 section.presentation .content a:hover {
-  background-color: #c40900;
+  background-color: var(--primary-button-bg_hover);
 }
 
 section.presentation .content_img img {
@@ -108,14 +176,14 @@ section.presentation .content_img img {
 
 section.advantages h1 {
   font-size: 4rem;
-  color: #c9c9c9;
+  color: var(--light-title);
   text-align: right;
   place-self: center;
   padding: 2rem;
 }
 
 section.advantages ul {
-  background-color: #fff;
+  background-color: var(--secondary-bg);
   margin: 0;
   padding: 3rem;
   list-style: none;
@@ -130,19 +198,21 @@ section.advantages ul li {
 }
 
 section.advantages ul li:hover {
-  border-color: #ec1f11;
+  border-color: var(--primary-button-bg);
 }
 
 section.advantages ul li:nth-child(odd) {
-  background-color: #eee;
+  background-color: var(--primary-bg);
 }
 
 section.advantages ul li h3 {
+  color: var(--primary-color);
   padding: 0;
   margin: 0;
 }
 
 section.advantages ul li p {
+  color: var(--primary-color);
   grid-column: 2;
   margin: 0;
 }
