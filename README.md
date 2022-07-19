@@ -8,6 +8,7 @@ https://www.origamid.com
 
 - Flexbox e Grid Layout
 - Responsivo com flex wrap e media query
+- Dark/Light Mode
 
 ## Demonstração
 
