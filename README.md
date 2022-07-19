@@ -16,7 +16,7 @@ https://bikcraft-01.vercel.app/
 
 ## Stack utilizada
 
-**Front-end:** Html e Css
+**Front-end:** Html, Css e Javascript
 
 ## Feedback
 
